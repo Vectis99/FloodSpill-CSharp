@@ -24,7 +24,10 @@ namespace FloodSpill.Benchmarks
 
 		[Params(10, 100, 1000, 10000)]
 		public int Elements;
-		[Benchmark, MemoryDiagnoser]
+		// Error when updating to .NET 5.0:
+		// Attribute 'MemoryDiagnoser' is not valid on this declaration type. It is only valid on 'class' declarations: [Benchmark, MemoryDiagnoser]
+		// Instead, using:
+		[Benchmark]
 		public void TestQueue()
 		{
 			var queue = new FifoPositionQueue();
@@ -35,7 +38,10 @@ namespace FloodSpill.Benchmarks
 			}
 		}
 
-		[Benchmark, MemoryDiagnoser]
+		// Error when updating to .NET 5.0:
+		// Attribute 'MemoryDiagnoser' is not valid on this declaration type. It is only valid on 'class' declarations: [Benchmark, MemoryDiagnoser]
+		// Instead, using:
+		[Benchmark]
 		public void TestStack()
 		{
 			var stack = new LifoPositionQueue();
@@ -46,7 +52,10 @@ namespace FloodSpill.Benchmarks
 			}
 		}
 
-		[Benchmark, MemoryDiagnoser]
+		// Error when updating to .NET 5.0:
+		// Attribute 'MemoryDiagnoser' is not valid on this declaration type. It is only valid on 'class' declarations: [Benchmark, MemoryDiagnoser]
+		// Instead, using:
+		[Benchmark]
 		public void TestPriorityQueue()
 		{
 			var priorityQueue = new PriorityPositionQueue((first, second) => (first.X + first.Y).CompareTo(second.X + second.Y));

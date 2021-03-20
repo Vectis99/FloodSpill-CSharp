@@ -70,7 +70,10 @@ namespace FloodSpill.Benchmarks
 		[Params(true, false)]
 		public bool UsingScanline;
 
-		[Benchmark, MemoryDiagnoser]
+		// Error when updating to .NET 5.0:
+		// Attribute 'MemoryDiagnoser' is not valid on this declaration type. It is only valid on 'class' declarations: [Benchmark, MemoryDiagnoser]
+		// Instead, using:
+		[Benchmark]
 		public void RunFloodFill()
 		{
 			_parameters.PositionsToVisitQueue = new FifoPositionQueue();

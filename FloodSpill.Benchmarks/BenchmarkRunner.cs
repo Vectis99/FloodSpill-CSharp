@@ -7,8 +7,12 @@ namespace FloodSpill.Benchmarks
 	{
 		public static void Main(string[] args)
 		{
-			var config = ManualConfig.Create(DefaultConfig.Instance)
-				.With(MemoryDiagnoser.Default);
+			// Upgrade to .NET 5.0 gave the following warning:
+			//'ConfigExtensions.With(IConfig, params IDiagnoser[])' is obsolete: 'This method will soon be removed, please start using .AddDiagnoser() instead.'
+			//			var config = ManualConfig.Create(DefaultConfig.Instance)
+			//	.With(MemoryDiagnoser.Default);
+			// So instead using:
+			var config = ManualConfig.Create(DefaultConfig.Instance).AddDiagnoser(MemoryDiagnoser.Default);
 
 			//var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<ArrayClearBenchmark>(config);
 			var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<FloodSpillBenchmarks>(config);
