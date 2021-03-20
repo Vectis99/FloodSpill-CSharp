@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <FileUpgradeFlags>40</FileUpgradeFlags>
     <OldToolsVersion>15.0</OldToolsVersion>
     <UpgradeBackupLocation>D:\Projekty\FloodSpiller-CSharp\Backup2\</UpgradeBackupLocation>
@@ -19,7 +19,7 @@
     <Version>1.0.4</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="C5" Version="2.5.3" />
+    <PackageReference Include="C5" Version="3.0.0-beta" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
